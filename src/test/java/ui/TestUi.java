@@ -10,6 +10,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ui.pageobjects.CartPage;
+import ui.pageobjects.LoginPage;
+import ui.pageobjects.OrderPage;
+import ui.pageobjects.SignUpPage;
 
 import java.time.Duration;
 import java.time.LocalDate;

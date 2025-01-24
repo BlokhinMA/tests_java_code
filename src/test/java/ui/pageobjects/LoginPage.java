@@ -1,32 +1,32 @@
-package ui;
+package ui.pageobjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class SignUpPage {
+public class LoginPage {
 
     private WebDriver driver;
 
-    @FindBy(xpath = "//input[@id='sign-username']")
+    @FindBy(xpath = "//input[@id='loginusername']")
     private WebElement usernameInput;
 
-    @FindBy(xpath = "//input[@id='sign-password']")
+    @FindBy(xpath = "//input[@id='loginpassword']")
     private WebElement passwordInput;
 
-    @FindBy(xpath = "//button[text()='Sign up']")
-    private WebElement signUpButton;
+    @FindBy(xpath = "//button[text()='Log in']")
+    private WebElement logInButton;
 
-    public SignUpPage(WebDriver driver) {
+    public LoginPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    public void register(String username, String password) {
+    public void login(String username, String password) {
         usernameInput.sendKeys(username);
         passwordInput.sendKeys(password);
-        signUpButton.click();
+        logInButton.click();
     }
 
 }
