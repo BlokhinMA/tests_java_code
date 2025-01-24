@@ -100,9 +100,10 @@ public class TestUi {
         driver.findElement(By.xpath("//a[text()='" + category + "']")).click();
         Thread.sleep(500);
         WebElement div = driver.findElement(By.xpath("//div[@class='card h-100']"));
+        int priceInList = Integer.parseInt(div.findElement(By.xpath(".//h5")).getText().substring(1)); // цена из общего списка
         div.click();
-        //System.out.println(driver.findElement(By.xpath("//a[text()='" + name +"']")).findElement(By.xpath("..")).findElement(By.xpath("..")).findElement(By.xpath("//h5")));
-        System.out.println(div.findElement(By.xpath(".//h5")).getText());
+        String priceOnCard = driver.findElement(By.xpath("//h3[@class='price-container']")).getText(); // цена с карточки товара (в виде строки)
+        Assertions.assertEquals(priceInList, Integer.parseInt(priceOnCard.substring(1, priceOnCard.indexOf(" "))));
         driver.findElement(By.xpath("//a[text()='Add to cart']")).click();
         wait.until(ExpectedConditions.alertIsPresent());
         driver.switchTo().alert().accept();
